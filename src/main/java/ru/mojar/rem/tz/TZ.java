@@ -1,5 +1,8 @@
 package ru.mojar.rem.tz;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -16,22 +19,29 @@ public class TZ {
 
     @Mod.EventHandler
     public void init (FMLInitializationEvent event){
-
-        MyBlock mojarBlock = new MyBlock();
-        ItemBlock mojarItem = new ItemBlock(mojarBlock);
-
-
-        //// TODO: 17.09.2016 Fix item texture and rendering
-        GameRegistry.register(mojarBlock.setRegistryName("block_mojar"));
-        GameRegistry.register(mojarItem.setRegistryName(mojarBlock.getRegistryName()));
-
-        //Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getByNameOrId("block_mojar"), 0, new ModelResourceLocation(MODID+":"+mojarBlock.getUnlocalizedName().substring(5), "inventory"));
-
-        GameRegistry.addRecipe(new ItemStack(mojarItem), new Object[] {"###","###", "###", '#', Blocks.GOLD_BLOCK});
+        this.addBlock();//добавление блока
     }
 
+    //Для удобства создал отделную функцию, котрая регистрирует блок
+    private void addBlock(){
+        //Создается инстанс для блока и блок итема. Блок итем служит для отображения блока в инвентаре.
+        MyBlock mojarBlock = new MyBlock();
+        ItemBlock mojarItem = new ItemBlock(mojarBlock);
+        mojarItem.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+
+        //регистрируеца меш для отображения в инвентаре
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(mojarItem, 0, new ModelResourceLocation(MODID+":"+mojarBlock.getUnlocalizedName().substring(5), "inventory"));
+
+        GameRegistry.register(mojarBlock.setRegistryName(mojarBlock.getUnlocalizedName().substring(5))); //название совпадается с UnlocalizedName. хз почему, но по другому не работает. позднее разберусь
+        GameRegistry.register(mojarItem.setRegistryName(mojarBlock.getRegistryName()));
+
+        //сха построениея рецепта в првых трех кавычках указаны блоки которые должны быть выставлены на верстак
+        //в данном случае
+        //###
+        //###
+        //###
+        GameRegistry.addRecipe(new ItemStack(mojarItem), "###","###", "###", '#', Blocks.GOLD_BLOCK);
 
 
-
-
+    }
 }
