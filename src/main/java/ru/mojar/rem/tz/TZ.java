@@ -35,6 +35,9 @@ public class TZ {
         GameRegistry.register(mojarBlock.setRegistryName(mojarBlock.getUnlocalizedName().substring(5))); //название совпадается с UnlocalizedName. хз почему, но по другому не работает. позднее разберусь
         GameRegistry.register(mojarItem.setRegistryName(mojarBlock.getRegistryName()));
 
+        MyBlockWorldGen generator = new MyBlockWorldGen(mojarBlock);
+        GameRegistry.registerWorldGenerator(generator, 0);
+
         //сха построениея рецепта в првых трех кавычках указаны блоки которые должны быть выставлены на верстак
         //в данном случае
         //###
