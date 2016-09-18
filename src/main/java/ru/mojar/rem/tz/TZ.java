@@ -20,6 +20,7 @@ public class TZ {
     @Mod.EventHandler
     public void init (FMLInitializationEvent event){
         this.addBlock();//добавление блока
+        this.addItem();
     }
 
     //Для удобства создал отделную функцию, котрая регистрирует блок
@@ -44,7 +45,12 @@ public class TZ {
         //###
         //###
         GameRegistry.addRecipe(new ItemStack(mojarItem), "###","###", "###", '#', Blocks.GOLD_BLOCK);
+    }
 
+    public void addItem(){
+        MyItem mojarItem = new MyItem();
 
+        GameRegistry.register(mojarItem.setRegistryName(mojarItem.getUnlocalizedName().substring(5)));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(mojarItem, 0, new ModelResourceLocation(MODID+":"+mojarItem.getUnlocalizedName().substring(5), "inventory"));
     }
 }
