@@ -6,9 +6,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import ru.mojar.rem.tz.core.modification.BowModifier;
+import ru.mojar.rem.tz.core.modification.MojarEventHandler;
 
 @Mod(modid = TZ.MODID, name = TZ.MODNAME, version = TZ.VERSION)
 public class TZ {
@@ -19,7 +22,13 @@ public class TZ {
 
     @Mod.EventHandler
     public void init (FMLInitializationEvent event){
-        this.addBlock();//добавление блока
+        //более правильный способ регистрировать события. в предлыдущем моде, был способ @Deprecated
+        MojarEventHandler eventHandler = new MojarEventHandler();
+        MinecraftForge.EVENT_BUS.register(eventHandler);
+
+        BowModifier.checkName();
+
+        this.addBlock(); //добавление блока
         this.addItem();
     }
 
@@ -45,6 +54,7 @@ public class TZ {
         //###
         //###
         GameRegistry.addRecipe(new ItemStack(mojarItem), "###","###", "###", '#', Blocks.GOLD_BLOCK);
+
     }
 
     public void addItem(){
