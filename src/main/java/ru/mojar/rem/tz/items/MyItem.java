@@ -1,4 +1,4 @@
-package ru.mojar.rem.tz;
+package ru.mojar.rem.tz.items;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;

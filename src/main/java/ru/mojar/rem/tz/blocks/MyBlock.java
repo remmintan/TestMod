@@ -1,4 +1,4 @@
-package ru.mojar.rem.tz;
+package ru.mojar.rem.tz.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

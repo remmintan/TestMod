@@ -10,8 +10,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import ru.mojar.rem.tz.core.modification.BowModifier;
-import ru.mojar.rem.tz.core.modification.MojarEventHandler;
+import ru.mojar.rem.tz.blocks.MyBlock;
+import ru.mojar.rem.tz.blocks.MyBlockWorldGen;
+import ru.mojar.rem.tz.other.MojarEventHandler;
+import ru.mojar.rem.tz.items.MyItem;
 
 @Mod(modid = TZ.MODID, name = TZ.MODNAME, version = TZ.VERSION)
 public class TZ {
@@ -25,8 +27,6 @@ public class TZ {
         //более правильный способ регистрировать события. в предлыдущем моде, был способ @Deprecated
         MojarEventHandler eventHandler = new MojarEventHandler();
         MinecraftForge.EVENT_BUS.register(eventHandler);
-
-        BowModifier.checkName();
 
         this.addBlock(); //добавление блока
         this.addItem();
@@ -54,7 +54,6 @@ public class TZ {
         //###
         //###
         GameRegistry.addRecipe(new ItemStack(mojarItem), "###","###", "###", '#', Blocks.GOLD_BLOCK);
-
     }
 
     public void addItem(){
@@ -62,5 +61,7 @@ public class TZ {
 
         GameRegistry.register(mojarItem.setRegistryName(mojarItem.getUnlocalizedName().substring(5)));
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(mojarItem, 0, new ModelResourceLocation(MODID+":"+mojarItem.getUnlocalizedName().substring(5), "inventory"));
+
+
     }
 }
