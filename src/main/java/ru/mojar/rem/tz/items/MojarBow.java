@@ -21,9 +21,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import ru.mojar.rem.tz.TZ;
 
-public class NewBow extends ItemBow{
+public class MojarBow extends ItemBow{
 
-    public NewBow(){
+    public MojarBow(){
         super();
         this.setUnlocalizedName("new_bow");
         this.setCreativeTab(CreativeTabs.COMBAT);

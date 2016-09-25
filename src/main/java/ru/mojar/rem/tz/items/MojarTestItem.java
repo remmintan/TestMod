@@ -15,9 +15,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import ru.mojar.rem.tz.TZ;
 
-public class MyItem extends Item{
+public class MojarTestItem extends Item{
 
-    public MyItem(){
+    public MojarTestItem(){
         super();
 
         this.setUnlocalizedName("item_mojar");

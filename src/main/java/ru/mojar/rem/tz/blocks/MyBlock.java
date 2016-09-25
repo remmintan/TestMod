@@ -3,13 +3,19 @@ package ru.mojar.rem.tz.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import ru.mojar.rem.tz.TZ;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -25,7 +31,14 @@ public class MyBlock extends Block{
         this.setBlockUnbreakable(); //говорит за себя. блок неразрушаем.
         this.setUnlocalizedName("block_mojar");// это название должно совпадать с названием в json'ах
 
-
+        ItemBlock mojarItem = new ItemBlock(this);
+        mojarItem.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(mojarItem, 0, new ModelResourceLocation(TZ.MODID+":"+this.getUnlocalizedName().substring(5), "inventory"));
+        GameRegistry.register(this.setRegistryName(this.getUnlocalizedName().substring(5))); //название совпадается с UnlocalizedName. хз почему, но по другому не работает. позднее разберусь
+        GameRegistry.register(mojarItem.setRegistryName(this.getRegistryName()));
+        MyBlockWorldGen generator = new MyBlockWorldGen(this);
+        GameRegistry.registerWorldGenerator(generator, 0);
+        GameRegistry.addRecipe(new ItemStack(mojarItem), "###","###", "###", '#', Blocks.GOLD_BLOCK);
     }
 
 
