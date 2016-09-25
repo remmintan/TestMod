@@ -1,6 +1,5 @@
 package ru.mojar.rem.tz.other;
 
-import com.sun.istack.internal.NotNull;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -14,7 +13,7 @@ public class ManagableRecipe implements IRecipe{
 
     private ItemStack output = null;
 
-    public ManagableRecipe(@NotNull IRecipe recp){
+    public ManagableRecipe(IRecipe recp){
         this.baseRecipe = recp;
     }
 
