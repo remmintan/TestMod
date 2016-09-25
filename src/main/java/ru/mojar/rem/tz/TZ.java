@@ -12,8 +12,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import ru.mojar.rem.tz.blocks.MyBlock;
 import ru.mojar.rem.tz.blocks.MyBlockWorldGen;
-import ru.mojar.rem.tz.other.MojarEventHandler;
 import ru.mojar.rem.tz.items.MyItem;
+import ru.mojar.rem.tz.items.NewBow;
+import ru.mojar.rem.tz.other.MojarEventHandler;
 
 @Mod(modid = TZ.MODID, name = TZ.MODNAME, version = TZ.VERSION)
 public class TZ {
@@ -29,7 +30,7 @@ public class TZ {
         MinecraftForge.EVENT_BUS.register(eventHandler);
 
         this.addBlock(); //добавление блока
-        this.addItem();
+        this.addItems();
     }
 
     //Для удобства создал отделную функцию, котрая регистрирует блок
@@ -56,12 +57,8 @@ public class TZ {
         GameRegistry.addRecipe(new ItemStack(mojarItem), "###","###", "###", '#', Blocks.GOLD_BLOCK);
     }
 
-    public void addItem(){
-        MyItem mojarItem = new MyItem();
-
-        GameRegistry.register(mojarItem.setRegistryName(mojarItem.getUnlocalizedName().substring(5)));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(mojarItem, 0, new ModelResourceLocation(MODID+":"+mojarItem.getUnlocalizedName().substring(5), "inventory"));
-
-
+    public void addItems(){
+        new MyItem();
+        new NewBow();
     }
 }
