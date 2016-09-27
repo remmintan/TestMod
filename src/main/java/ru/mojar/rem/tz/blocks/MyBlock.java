@@ -15,7 +15,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import ru.mojar.rem.tz.TZ;
+import ru.mojar.rem.tz.other.ModInfo;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -33,7 +33,7 @@ public class MyBlock extends Block{
 
         ItemBlock mojarItem = new ItemBlock(this);
         mojarItem.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(mojarItem, 0, new ModelResourceLocation(TZ.MODID+":"+this.getUnlocalizedName().substring(5), "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(mojarItem, 0, new ModelResourceLocation(ModInfo.MODID+":"+this.getUnlocalizedName().substring(5), "inventory"));
         GameRegistry.register(this.setRegistryName(this.getUnlocalizedName().substring(5))); //название совпадается с UnlocalizedName. хз почему, но по другому не работает. позднее разберусь
         GameRegistry.register(mojarItem.setRegistryName(this.getRegistryName()));
         MyBlockWorldGen generator = new MyBlockWorldGen(this);

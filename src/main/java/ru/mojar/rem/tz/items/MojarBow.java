@@ -19,7 +19,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import ru.mojar.rem.tz.TZ;
+import ru.mojar.rem.tz.other.ModInfo;
 
 public class MojarBow extends ItemBow{
 
@@ -27,10 +27,10 @@ public class MojarBow extends ItemBow{
         super();
         this.setUnlocalizedName("new_bow");
         this.setCreativeTab(CreativeTabs.COMBAT);
-        this.setRegistryName(TZ.MODID+":"+this.getUnlocalizedName().substring(5));
+        this.setRegistryName(ModInfo.MODID+":"+this.getUnlocalizedName().substring(5));
 
         GameRegistry.register(this);
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(this, 0, new ModelResourceLocation(TZ.MODID+":"+this.getUnlocalizedName().substring(5), "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(this, 0, new ModelResourceLocation(ModInfo.MODID+":"+this.getUnlocalizedName().substring(5), "inventory"));
     }
 
     @Override
