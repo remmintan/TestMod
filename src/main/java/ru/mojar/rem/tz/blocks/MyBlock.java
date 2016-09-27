@@ -24,7 +24,7 @@ public class MyBlock extends Block{
     private static Random r = new Random();
 
     public MyBlock() {
-        super(Material.GROUND);
+        super(Material.GROUND); // я уже забыл почему это так. на веру короче.
 
         //далее устанавливаются свойства блока. о них достаточно можно погуглить
         this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS); // устанавливает

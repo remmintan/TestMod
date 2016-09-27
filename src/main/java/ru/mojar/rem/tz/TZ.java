@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import ru.mojar.rem.tz.blocks.MyBlock;
+import ru.mojar.rem.tz.generator.WorldTypeMojar;
 import ru.mojar.rem.tz.items.MojarBow;
 import ru.mojar.rem.tz.items.MojarTestItem;
 import ru.mojar.rem.tz.other.ModInfo;
@@ -24,6 +25,7 @@ public class TZ {
     @Mod.EventHandler
     public void fmlLifeCycle(FMLPreInitializationEvent event){
         modIns = this;
+
     }
 
     @Mod.EventHandler
@@ -33,6 +35,7 @@ public class TZ {
 
         this.addBlocks();
         this.addItems();
+        this.addDimension();
     }
 
     @Mod.EventHandler
@@ -47,5 +50,9 @@ public class TZ {
     public void addItems(){
         new MojarTestItem();
         new MojarBow();
+    }
+
+    public void addDimension(){
+        WorldTypeMojar.addWorldType();
     }
 }
