@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mojartz",
+  "name": "Mojar Test",
+  "description": "Huge Test modification, which contains all aspect of Forge modding",
+  "version": "1.0.0",
+  "mcversion": "1.10.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Remmintan"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

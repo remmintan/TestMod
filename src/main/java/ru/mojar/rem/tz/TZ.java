@@ -51,7 +51,7 @@ public class TZ {
 
     private void addBlocks(){
         new MyBlock();
-        MinaBlock mojarMina = new MinaBlock();
+        new MinaBlock();
     }
 
     public void addItems(){
