@@ -63,8 +63,6 @@ public class TZ {
         Biome mojar = new BiomeMojar();
         Biome.registerBiome(40, DimensionInfo.BIOME_NAME, mojar);
 
-
-
         WorldTypeMojar.addWorldType();
         Dimension.registerDimension();
     }

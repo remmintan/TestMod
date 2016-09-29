@@ -13,7 +13,6 @@ public class Dimension {
         }
 
         DimensionType dt = DimensionType.getById(DimensionInfo.DIMENSION_TYPE_ID);
-
         DimensionManager.registerDimension(DimensionInfo.DIMENSION_ID, dt);
     }
 
