@@ -7,7 +7,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -35,14 +37,18 @@ public class MinaBlock extends BlockPressurePlate{
     @Override
     public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
     {
-        if (!worldIn.isRemote)
+        if (!worldIn.isRemote )
         {
             int i = this.getRedstoneStrength(state);
 
             if (i == 0)
             {
                 this.updateState(worldIn, pos, state, i);
-                worldIn.createExplosion(entityIn, pos.getX(), pos.getY(), pos.getZ(), 6.0f, true);
+
+            }else{
+                worldIn.createExplosion(entityIn, pos.getX(), pos.getY(), pos.getZ(), 4.0f, true);
+                //TODO damag poluchaet tot, kto vstal na plitu. ostalnie net. ISPRAVIT!!!
+                if(entityIn instanceof EntityLivingBase) entityIn.attackEntityFrom(DamageSource.causeExplosionDamage((EntityLivingBase)entityIn), 12);
             }
         }
     }

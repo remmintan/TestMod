@@ -44,8 +44,6 @@ public class MyBlock extends Block{
         MyBlockWorldGen generator = new MyBlockWorldGen(this);
         GameRegistry.registerWorldGenerator(generator, 0);
         GameRegistry.addRecipe(new ItemStack(mojarItem), "###","###", "###", '#', Blocks.GOLD_BLOCK);
-
-
     }
 
 
