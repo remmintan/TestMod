@@ -23,6 +23,8 @@ import java.util.Random;
 public class MyBlock extends Block{
     private static Random r = new Random();
 
+
+
     public MyBlock() {
         super(Material.GROUND); // я уже забыл почему это так. на веру короче.
 
@@ -31,14 +33,19 @@ public class MyBlock extends Block{
         this.setBlockUnbreakable(); //говорит за себя. блок неразрушаем.
         this.setUnlocalizedName("block_mojar");// это название должно совпадать с названием в json'ах
 
+
         ItemBlock mojarItem = new ItemBlock(this);
         mojarItem.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(mojarItem, 0, new ModelResourceLocation(ModInfo.MODID+":"+this.getUnlocalizedName().substring(5), "inventory"));
+
         GameRegistry.register(this.setRegistryName(this.getUnlocalizedName().substring(5))); //название совпадается с UnlocalizedName. хз почему, но по другому не работает. позднее разберусь
         GameRegistry.register(mojarItem.setRegistryName(this.getRegistryName()));
+
         MyBlockWorldGen generator = new MyBlockWorldGen(this);
         GameRegistry.registerWorldGenerator(generator, 0);
         GameRegistry.addRecipe(new ItemStack(mojarItem), "###","###", "###", '#', Blocks.GOLD_BLOCK);
+
+
     }
 
 

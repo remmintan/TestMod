@@ -1,9 +1,11 @@
 package ru.mojar.rem.tz.generator;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeDecorator;
+import ru.mojar.rem.tz.TZ;
 
 import java.util.Random;
 
@@ -22,7 +24,9 @@ public class MojarBiomeDecorator extends BiomeDecorator{
             if (j13 > 0)
             {
                 int k16 = random.nextInt(j13);
-                (new WorldGenMojar(Block.getBlockFromName("block_mojar"))).generate(worldIn, random, this.chunkPos.add(i5, k16, k9));
+                Block mj = Blocks.GOLD_BLOCK;
+                if(mj == null) throw new RuntimeException(TZ.DEBUG_PREFIX+"Null pointer");
+                (new WorldGenMojar(mj)).generate(worldIn, random, this.chunkPos.add(i5, k16, k9));
             }
         }
     }

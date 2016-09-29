@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import ru.mojar.rem.tz.blocks.MinaBlock;
 import ru.mojar.rem.tz.blocks.MyBlock;
 import ru.mojar.rem.tz.generator.BiomeMojar;
 import ru.mojar.rem.tz.generator.Dimension;
@@ -50,6 +51,7 @@ public class TZ {
 
     private void addBlocks(){
         new MyBlock();
+        MinaBlock mojarMina = new MinaBlock();
     }
 
     public void addItems(){
@@ -60,6 +62,8 @@ public class TZ {
     public void addDimension(){
         Biome mojar = new BiomeMojar();
         Biome.registerBiome(40, DimensionInfo.BIOME_NAME, mojar);
+
+
 
         WorldTypeMojar.addWorldType();
         Dimension.registerDimension();
