@@ -5,4 +5,12 @@ package ru.mojar.rem.tz.web;
  */
 public class CommonProxy {
 
+    public void registerRenderers(){
+
+    }
+
+    public void registerKeyBindings(){
+
+    }
+
 }

@@ -6,4 +6,14 @@ package ru.mojar.rem.tz.web;
  */
 public class ClientProxy extends CommonProxy{
 
+    @Override
+    public void registerRenderers(){
+
+    }
+
+    @Override
+    public void registerKeyBindings(){
+
+    }
+
 }
