@@ -1,11 +1,13 @@
 package ru.mojar.rem.tz.generator;
 
 import net.minecraft.world.World;
-import net.minecraft.world.gen.ChunkProviderFlat;
+import net.minecraft.world.gen.ChunkProviderOverworld;
 
-public class MojarChunkGenerator extends ChunkProviderFlat {
+public class MojarChunkGenerator extends ChunkProviderOverworld {
 
-    public MojarChunkGenerator(World worldIn, long seed, boolean generateStructures, String flatGeneratorSettings) {
-        super(worldIn, seed, generateStructures, flatGeneratorSettings);
+    public MojarChunkGenerator(World worldIn, long seed) {
+        super(worldIn, seed, false, "");
     }
+
+
 }

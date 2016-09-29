@@ -1,17 +1,14 @@
 package ru.mojar.rem.tz.generator;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.Biome;
 
-public class BiomeMojar extends Biome{
-    private static BiomeProperties properties = (new BiomeProperties("Mojar DESERT")).setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled();
+public class BiomeMojar extends Biome {
+
     public BiomeMojar() {
-        super(properties);
+        super((new Biome.BiomeProperties(DimensionInfo.BIOME_NAME)).setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(0.8F).setRainfall(1F));
 
-        this.spawnableCreatureList.clear();
-        this.topBlock = Blocks.BRICK_BLOCK.getDefaultState();
-        this.fillerBlock = Blocks.COAL_BLOCK.getDefaultState();
-
-        Biome.registerBiome(40, "mojar", this);
+        this.spawnableCaveCreatureList.clear();
+        this.spawnableMonsterList.clear();
     }
+
 }

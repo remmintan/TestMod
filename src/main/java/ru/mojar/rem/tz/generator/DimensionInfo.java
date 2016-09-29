@@ -8,4 +8,5 @@ public class DimensionInfo {
     public static final String DIMENSION_TYPE_NAME = "MojarWorld";
     public static final String DIMENSION_TYPE_SUFFIX = "";
 
+    public static final String BIOME_NAME = "mojar";
 }

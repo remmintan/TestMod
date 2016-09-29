@@ -1,10 +1,12 @@
 package ru.mojar.rem.tz.generator;
 
+import net.minecraft.init.Biomes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -12,14 +14,19 @@ public class WorldProviderMojar extends WorldProvider {
     @Override
     public DimensionType getDimensionType() {
         return DimensionType.getById(DimensionInfo.DIMENSION_ID);
-
     }
 
     @Override
-    public IChunkGenerator createChunkGenerator()
-    {
-        return new MojarChunkGenerator(this.worldObj, this.getSeed(), false, "");
+    public void createBiomeProvider(){
+        Biome mainB = Biome.REGISTRY.getObject(new ResourceLocation(DimensionInfo.BIOME_NAME));
+        if(mainB == null){
+            this.biomeProvider = new net.minecraft.world.biome.BiomeProviderSingle(Biomes.COLD_BEACH);
+        }else{
+            this.biomeProvider = new net.minecraft.world.biome.BiomeProviderSingle(mainB);
+        }
+
     }
+
 
     @Override
     /** sets/creates the save folder */
@@ -33,11 +40,16 @@ public class WorldProviderMojar extends WorldProvider {
         return 0.1;
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
-    /** should a color for the sky be rendered? */
     public boolean isSkyColored()
     {
-        return true;
+        return false;
+    }
+
+    @Override
+    public float getCloudHeight(){
+        return 512f;
     }
 
     @Override
