@@ -15,6 +15,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import ru.mojar.rem.tz.other.ModInfo;
 
+import java.util.Random;
+
 public class MinaBlock extends BlockPressurePlate{
 
     public static String registryName;
@@ -23,6 +25,7 @@ public class MinaBlock extends BlockPressurePlate{
         super(Material.GRASS, BlockPressurePlate.Sensitivity.EVERYTHING);
 
         this.setUnlocalizedName("mojar_mina");
+
 
         ItemBlock mojarItem = new ItemBlock(this);
         mojarItem.setCreativeTab(CreativeTabs.REDSTONE);
@@ -51,5 +54,11 @@ public class MinaBlock extends BlockPressurePlate{
                 if(entityIn instanceof EntityLivingBase) entityIn.attackEntityFrom(DamageSource.causeExplosionDamage((EntityLivingBase)entityIn), 12);
             }
         }
+    }
+
+    @Override
+    public int quantityDropped(Random random)
+    {
+        return 0;
     }
 }
