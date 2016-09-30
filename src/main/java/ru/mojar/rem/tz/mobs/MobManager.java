@@ -17,7 +17,8 @@ import java.util.Random;
 public class MobManager {
 
     public static void registrEntities(){
-        MobManager.registerEntity(MojarMob.class, "mojar_mob", 121, 10, 3);
+        MobManager.registerEntity(MojarRed.class, "mojar_red", 121);
+        MobManager.registerEntity(MojarBlue.class, "mojar_blue", 122);
     }
 
     public static void entitySpawn(EntityLiving ent){
@@ -51,7 +52,7 @@ public class MobManager {
         }
     }
 
-    private static void registerEntity(Class entityClass, String name, int id, int trackingRange, int updateFrequensy)
+    private static void registerEntity(Class entityClass, String name, int id)
     {
 
         long seed = name.hashCode();
@@ -59,8 +60,8 @@ public class MobManager {
         int primaryColor = rand.nextInt() * 16777215;
         int secondaryColor = rand.nextInt() * 16777215;
 
-
-        EntityRegistry.registerModEntity(entityClass, name, id, TZ.modIns, trackingRange, updateFrequensy, false, primaryColor, secondaryColor);
+        //tracking range and update frequensy are random! :)
+        EntityRegistry.registerModEntity(entityClass, name, id, TZ.modIns, 80, 3, false, primaryColor, secondaryColor);
 
 
     }
