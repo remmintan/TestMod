@@ -1,7 +1,5 @@
 package ru.mojar.rem.tz.items;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -12,19 +10,13 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import ru.mojar.rem.tz.other.ModInfo;
 
 public class MojarTestItem extends Item{
 
     public MojarTestItem(){
         super();
-
         this.setUnlocalizedName("item_mojar");
         this.setCreativeTab(CreativeTabs.TOOLS);
-
-        GameRegistry.register(this.setRegistryName(this.getUnlocalizedName().substring(5)));
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(this, 0, new ModelResourceLocation(ModInfo.MODID+":"+this.getUnlocalizedName().substring(5), "inventory"));
     }
 
     @Override

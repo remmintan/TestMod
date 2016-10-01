@@ -1,4 +1,4 @@
-package ru.mojar.rem.tz.blocks;
+package ru.mojar.rem.tz.generator.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
@@ -12,10 +12,10 @@ import java.util.Random;
 
 public class MyBlockWorldGen implements IWorldGenerator {
 
-    private final Block trik;
+    private Block block;
 
-    public MyBlockWorldGen(Block bl){
-        trik = bl;
+    public void setBlock(Block block) {
+        this.block = block;
     }
 
     @Override
@@ -49,7 +49,7 @@ public class MyBlockWorldGen implements IWorldGenerator {
             BlockPos quisquePos = new BlockPos(firstBlockXCoord, quisqueY, firstBlockZCoord);
 
             //The 10 as the second parameter sets the maximum vein size
-            (new WorldGenMinable(trik.getDefaultState(), 25)).generate(world, rand, quisquePos);
+            (new WorldGenMinable(block.getDefaultState(), 25)).generate(world, rand, quisquePos);
         }
     }
 

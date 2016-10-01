@@ -62,8 +62,6 @@ public class MobManager {
 
         //tracking range and update frequensy are random! :)
         EntityRegistry.registerModEntity(entityClass, name, id, TZ.modIns, 80, 3, false, primaryColor, secondaryColor);
-
-
     }
 
 }

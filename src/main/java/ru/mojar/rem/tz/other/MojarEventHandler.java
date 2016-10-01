@@ -7,8 +7,8 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.terraingen.BiomeEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
-import ru.mojar.rem.tz.generator.BiomeMojar;
-import ru.mojar.rem.tz.generator.MojarBiomeDecorator;
+import ru.mojar.rem.tz.generator.biome.BiomeMojar;
+import ru.mojar.rem.tz.generator.biome.MojarBiomeDecorator;
 import ru.mojar.rem.tz.mobs.MobManager;
 
 public class MojarEventHandler {

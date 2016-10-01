@@ -1,4 +1,4 @@
-package ru.mojar.rem.tz.generator;
+package ru.mojar.rem.tz.generator.biome;
 
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;

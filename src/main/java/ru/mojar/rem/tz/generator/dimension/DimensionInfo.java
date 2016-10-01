@@ -1,4 +1,4 @@
-package ru.mojar.rem.tz.generator;
+package ru.mojar.rem.tz.generator.dimension;
 
 public class DimensionInfo {
 

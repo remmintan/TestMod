@@ -1,6 +1,7 @@
-package ru.mojar.rem.tz.generator;
+package ru.mojar.rem.tz.generator.biome;
 
 import net.minecraft.world.biome.Biome;
+import ru.mojar.rem.tz.generator.dimension.DimensionInfo;
 
 public class BiomeMojar extends Biome {
 
