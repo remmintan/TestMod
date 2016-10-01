@@ -22,9 +22,8 @@ public class MobManager {
     }
 
     public static void entitySpawn(EntityLiving ent){
-        if(ent instanceof EntityPig)
-            taskStuff((EntityPig) ent);
-
+        //just do nothing
+        //TODO fix bug with Attack Damage!
     }
 
     private static void taskStuff(EntityPig ent){

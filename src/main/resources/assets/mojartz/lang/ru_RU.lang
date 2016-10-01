@@ -1,0 +1,7 @@
+generator.MojarWorld=Минное поле
+tile.block_mojar.name=Mojar Тест
+tile.mojar_mina.name=Мина
+item.new_bow.name=Автоматический лук
+item.item_mojar.name=Древовысаживатель
+entity.mojartz.mojar_red.name=Красный человек
+entity.mojartz.mojar_blue.name=Зеленый человек

@@ -30,7 +30,6 @@ public class MojarEventHandler {
 
     @SubscribeEvent
     public void newDecorator(BiomeEvent.CreateDecorator event){
-
         if(event.getBiome().getBiomeClass() == BiomeMojar.class)
             event.setNewBiomeDecorator(new MojarBiomeDecorator());
     }

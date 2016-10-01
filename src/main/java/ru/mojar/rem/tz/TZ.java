@@ -15,6 +15,7 @@ import ru.mojar.rem.tz.other.ModInfo;
 import ru.mojar.rem.tz.other.MojarEventHandler;
 import ru.mojar.rem.tz.web.CommonProxy;
 
+@SuppressWarnings("unused")
 @Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, version = ModInfo.VERSION)
 public class TZ {
 
