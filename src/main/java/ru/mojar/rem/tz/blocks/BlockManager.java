@@ -7,8 +7,10 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import ru.mojar.rem.tz.blocks.tile_entities.MojarTileEntitiy;
 import ru.mojar.rem.tz.generator.block.MyBlockWorldGen;
 import ru.mojar.rem.tz.other.ModInfo;
 
@@ -21,12 +23,17 @@ public class BlockManager {
     private  final HashMap<Class<? extends Block>, String> registeredNames = new HashMap();
 
     public  void registerBlocks(){
+
+
         Block threeColor = new MyBlock();
         registerBlock(threeColor, new Object[] {"###","###", "###", '#', Blocks.GOLD_BLOCK});
-        addToWorldGen(threeColor, MyBlockWorldGen.class);
+        //addToWorldGen(threeColor, MyBlockWorldGen.class);
 
         Block mina = new MinaBlock();
         registerBlock(mina);
+
+        //TileEntities first!
+        registerTileEntity(MojarTileEntitiy.class, MojarTileEntitiy.defaultName);
     }
 
     private  void registerBlock(Block block){
@@ -50,6 +57,10 @@ public class BlockManager {
 
         GameRegistry.addRecipe(new ItemStack(mojarItem), recipe);
         registeredNames.put(block.getClass(), getFullName(block));
+    }
+
+    private void registerTileEntity(Class<? extends TileEntity> cls, String name){
+        GameRegistry.registerTileEntity(cls, name);
     }
 
     private  void addToWorldGen(Block block, Class<? extends IWorldGenerator> worldGen){
