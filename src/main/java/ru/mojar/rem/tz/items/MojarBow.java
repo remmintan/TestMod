@@ -1,6 +1,5 @@
 package ru.mojar.rem.tz.items;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,10 +18,12 @@ import net.minecraft.world.World;
 
 public class MojarBow extends ItemBow{
 
+    /**
+     * Скорострельный лук, просто наследован от стандартного лука
+     */
     public MojarBow(){
         super();
         this.setUnlocalizedName("new_bow");
-        this.setCreativeTab(CreativeTabs.COMBAT);
     }
 
     @Override
@@ -76,7 +77,7 @@ public class MojarBow extends ItemBow{
             stack.damageItem(1, entityplayer);
             entityarrow.pickupStatus = EntityArrow.PickupStatus.CREATIVE_ONLY;
             worldIn.spawnEntityInWorld(entityarrow);
-            worldIn.playSound((EntityPlayer)null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
+            worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
         }
     }
 
